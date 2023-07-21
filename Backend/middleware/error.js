@@ -1,4 +1,4 @@
-const { model } = require("mongoose");
+
 const ErrorResponse = require("../utils/errorResponse");
 
 const errorHandler = (err, req, res, next) =>{
@@ -18,12 +18,12 @@ const errorHandler = (err, req, res, next) =>{
 
      //Mongoose validation error
      if(err.name === "validationError"){
-        const message = object.values(err.errors).map(val => '' + val.message);
+        const message = Object.values(err.errors).map(val => ' ' + val.message);
         error = new ErrorResponse(message, 400);
     }
     res.status(err.statusCode || 500).json({
         success: false,
-        error: error.message || `server error`
+        error: error.message || "server error"
     })
 
 
