@@ -11,6 +11,6 @@ const { isAuthenticated } = require("../middleware/auth");
 router.post('/type/create', isAuthenticated, createJobType)
 
 // /api/type/jobs
-router.post('/type/jobs', allJobsType)
+router.get('/type/jobs', allJobsType)
 
 module.exports = router;

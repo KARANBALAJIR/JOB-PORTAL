@@ -16,14 +16,12 @@ const jobSchema = new mongoose.Schema({
         type: String,
         trim: true,
         required: [true, 'Description is required'],
-        maxlength: 70,
     },
 
     salary: {
         type: String,
         trim: true,
         required: [true, 'Salary is required'],
-        maxlength: 70,
     },
 
     location: {
@@ -35,13 +33,12 @@ const jobSchema = new mongoose.Schema({
         default: true
     },
 
-    jobTypeName: {
+    jobType: {
         type: ObjectId,
         ref: "JobType",
         required: true
     },
-    
-    
+     
     user: {
         type: ObjectId,
         ref: "User",
