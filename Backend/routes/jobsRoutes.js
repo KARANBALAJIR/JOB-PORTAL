@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { createJob, singleJob, updateJob } = require("../controllers/jobsController");
+const { createJob, singleJob, updateJob, showJobs } = require("../controllers/jobsController");
 const { isAuthenticated, isAdmin } = require("../middleware/auth");
 
 
@@ -13,6 +13,8 @@ router.post('/job/create', isAuthenticated, isAdmin, createJob);
 router.get('/job/:id', singleJob);
 // /api/job/update
 router.put('/job/update/:job_id',isAuthenticated, isAdmin,updateJob);
+// /api/job/show
+router.get('/jobs/show',showJobs);
 
 
 
