@@ -1,10 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from '../component/Navbar'
 import Header from '../component/Header'
 import { Box, Card, Container, Stack, Typography, useTheme } from '@mui/material'
+import { useDispatch } from 'react-redux';
+import { jobLoadAction } from '../redux/actions/jobAction';
+import { useParams } from 'react-router-dom';
 
 const Home = () => {
   const {palette} = useTheme();
+  const dispatch = useDispatch();
+  const { keyword, location } = useParams();
+
+  const[page, setPage ] = useState(1);
+  const[cat, setCat ] = React.useState('');
+
+  useEffect(() => {
+    dispatch(jobLoadAction(page, keyword, cat, location));
+  }, [page, keyword, cat, location])
+
   return (
     <>
     <Box sx = {{bgcolor: "#fafafa", minHeight: "100vh"}}>
