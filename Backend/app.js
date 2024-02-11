@@ -8,7 +8,6 @@ require("dotenv").config();
 var cors = require("cors");
 
 
-
 //database connection
 mongoose.connect(process.env.DATABASE, {
         useNewUrlParser: true,
