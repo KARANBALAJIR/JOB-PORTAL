@@ -35,7 +35,7 @@ app.use(cookieParser());
 app.use(cors());
 
 
-// Routes Middleware
+// // Routes Middleware
 // app.get("/", (req, res) => {
 //         res.send("Hello from node");
 // })
@@ -50,4 +50,3 @@ const port = process.env.PORT || 9001;
 app.listen(port, () => {
         console.log(`Server is running on port ${port}`);
 });
-
